@@ -1,4 +1,7 @@
-﻿internal class Program
+﻿using LiskovSubstitutionPrinciple.Models;
+using LiskovSubstitutionPrinciple.Services;
+
+internal class Program
 {
     //The Liskov Substitution Principle emphasizes that objects of a superclass should be replaceable with objects of its subclasses
     //without affecting the correctness of the program.
@@ -6,6 +9,12 @@
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        BirdWatcher watcher = new BirdWatcher();
+
+        Bird sparrow = new Sparrow();
+        Bird penguin = new Penguin();
+
+        watcher.WatchBird(sparrow); // Sparrow flies
+        watcher.WatchBird(penguin); // Penguin walks
     }
 }
